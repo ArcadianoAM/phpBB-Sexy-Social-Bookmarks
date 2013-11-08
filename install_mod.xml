@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (online version)"/>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Sexy Social Bookmarks]]></title>
+		<description lang="en"><![CDATA[With this model we have a beautiful sexy social bookmarks on our forum, the same as that used by the plugin in WordPress]]></description>
+		<description lang="it"><![CDATA[Con questa mod abbiamo il bellissimo sexy social bookmarks sul nostro forum, uguale a quello usato dal plugin di WordPress]]></description>
+		<author-notes lang="en"><![CDATA[Language: English, Italian]]></author-notes>
+		<author-notes lang="it"><![CDATA[Lingua: Italiano, Inglese]]></author-notes>
+		<author-group>
+			<author>
+				<realname><![CDATA[Rey]]></realname>
+				<username><![CDATA[Galandas]]></username>
+				<homepage><![CDATA[http://phpbb3world.com]]></homepage>
+				<email><![CDATA[italy@phpbb3world.com]]></email>
+			</author>
+		</author-group>
+		<mod-version>1.0.9</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>360</time>
+			<target-version>3.0.11</target-version>
+		</installation>
+		<history>
+			<entry>
+				<date>2011-12-14</date>
+				<rev-version>1.0.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[First version]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2012-12-25</date>
+				<rev-version>1.0.2</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Second version]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-05-09</date>
+				<rev-version>1.0.3</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Mod improved]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-05-24</date>
+				<rev-version>1.0.4</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Sexy Social Bookmarks added after the first message]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-06-12</date>
+				<rev-version>1.0.5</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added new buttons, you adjusted other small things.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-06-15</date>
+				<rev-version>1.0.6</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added choice of image to display, added the module]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-06-21</date>
+				<rev-version>1.0.7</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Added visual buttons choice, color tooltip animation is the color of the text]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-07-10</date>
+				<rev-version>1.0.8</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Improvements code]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-07-11</date>
+				<rev-version>1.0.9</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Positions option added]]></change>
+				</changelog>
+			</entry>
+		</history>
+		<link-group>
+			<link type="language" href="contrib/it.xml" lang="en">Italian Language</link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/*.*" to="*.*"/>
+		</copy>
+		<open src="index.php">
+			<edit>
+				<find><![CDATA[	'S_DISPLAY_BIRTHDAY_LIST'	=> ($config['load_birthdays']) ? true : false,]]></find>
+				<action type="after-add"><![CDATA[    // Sexy Social Bookmarks MOD
+	'S_SEXY_ENABLE' 		    => $config['sexy_enable'],
+    'S_SEXY_BUTTONS'	        => $config['sexy_buttons'],
+	'S_SEXY_COLOR'	            => $config['sexy_colors'],
+	'S_SEXY_TEXT'               => $config['sexy_text'],
+	'S_SEXY_POSITION'		    => $config['sexy_position'],
+    // Sexy Social Bookmarks MOD]]></action>
+			</edit>
+		</open>
+		<open src="viewtopic.php">
+			<edit>
+				<find><![CDATA[$auth->acl($user->data);]]></find>
+				<action type="after-add"><![CDATA[$user->add_lang('mods/info_acp_sexy');
+
+]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[		'S_TOPIC_POSTER'	=> ($topic_data['topic_poster'] == $poster_id) ? true : false,
+
+
+]]></find>
+				<action type="after-add"><![CDATA[        // Sexy Social Bookmarks MOD
+        'S_SEXY_BELOW_ENABLE'   => $config['sexy_below_enable'],
+        'S_SEXY_ENJOY'	        => $config['sexy_enjoy'],
+        'S_SEXY_BUTTONS'	    => $config['sexy_buttons'],
+		'S_SEXY_COLOR'	        => $config['sexy_colors'],
+		'S_SEXY_TEXT'           => $config['sexy_text'],
+	    'S_SEXY_POSITIONT'		=> $config['sexy_position_topic'],		
+        // Sexy Social Bookmarks MOD]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/index_body.html">
+			<edit>
+				<find><![CDATA[<!-- INCLUDE forumlist_body.html -->]]></find>
+				<action type="before-add"><![CDATA[<!-- IF S_SEXY_POSITION eq 0 --><!-- INCLUDE sexy_body.html --><!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/overall_footer.html">
+			<edit>
+				<find><![CDATA[<div id="page-footer">]]></find>
+				<action type="before-add"><![CDATA[<!-- IF S_SEXY_POSITION eq 1 --><!-- INCLUDE sexy_body.html --><!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/viewtopic_body.html">
+			<edit>
+				<find><![CDATA[<!-- BEGIN postrow -->]]></find>
+				<action type="after-add"><![CDATA[<!-- Start Shareaholic Sexy Bookmark script by phpbb3world.com for phpbb3 -->	
+<!-- IF postrow.S_SEXY_POSITIONT eq 1 -->
+<!-- IF postrow.S_SEXY_BELOW_ENABLE and postrow.S_FIRST_ROW -->
+<div class="shr_class shareaholic-show-on-load">
+</div>
+<script type="text/javascript">
+// ]]>&lt;![CDATA[<![CDATA[
+var SHRSB_Settings = {"shr_class":{"src":"{T_SUPER_TEMPLATE_PATH}/sexybookmarks","link":"","service":"{postrow.S_SEXY_BUTTONS}","apikey":"0747414f47c2b684cf5480c36b2478689","localize":true,"shortener":"bitly","shortener_key":"","designer_toolTips":true,"tip_bg_color":"#{postrow.S_SEXY_COLOR}","tip_text_color":"#{postrow.S_SEXY_TEXT}","twitter_template":"${title} - ${short_link} via @Shareaholic"}};
+var SHRSB_Globals = {"perfoption":"1"};
+// ]]>]]&gt;<![CDATA[
+</script>
+
+<script type="text/javascript">
+// ]]>&lt;![CDATA[<![CDATA[
+(function() {
+var sb = document.createElement("script"); sb.type = "text/javascript";sb.async = true;
+sb.src = ("https:" == document.location.protocol ? "https://dtym7iokkjlif.cloudfront.net" : "./") + "{T_SUPER_TEMPLATE_PATH}/sexybookmarks/jquery.shareaholic-publishers-sb.min.js";
+var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(sb, s);
+})();
+// ]]>]]&gt;<![CDATA[
+</script>        
+<!-- ENDIF -->
+<!-- ENDIF -->
+<!-- End Shareaholic Sexy Bookmark script by phpbb3world.com for phpbb3 -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<!-- END postrow -->]]></find>
+				<action type="before-add"><![CDATA[<!-- Start Shareaholic Sexy Bookmark script by phpbb3world.com for phpbb3 -->	
+<!-- IF postrow.S_SEXY_POSITIONT eq 0 -->
+<!-- IF postrow.S_SEXY_BELOW_ENABLE and postrow.S_FIRST_ROW -->
+    <div class="panel">
+        <div class="inner"><span class="corners-top"><span></span></span>
+            <div class="postbody">
+				    <h3><span style="color: black; float:right;">{L_AUTHOR_TOPIC} <!-- IF not postrow.U_POST_AUTHOR --><strong>{postrow.POST_AUTHOR_FULL}</strong><!-- ELSE -->{postrow.POST_AUTHOR_FULL}<!-- ENDIF --></span></h3>
+					<img src="{postrow.S_SEXY_ENJOY}" alt="" />
+<div class="shr_class shareaholic-show-on-load">
+</div>
+<script type="text/javascript">
+// ]]>&lt;![CDATA[<![CDATA[
+var SHRSB_Settings = {"shr_class":{"src":"{T_SUPER_TEMPLATE_PATH}/sexybookmarks","link":"","service":"{postrow.S_SEXY_BUTTONS}","apikey":"0747414f47c2b684cf5480c36b2478689","localize":true,"shortener":"bitly","shortener_key":"","designer_toolTips":true,"tip_bg_color":"#{postrow.S_SEXY_COLOR}","tip_text_color":"#{postrow.S_SEXY_TEXT}","twitter_template":"${title} - ${short_link} via @Shareaholic"}};
+var SHRSB_Globals = {"perfoption":"1"};
+// ]]>]]&gt;<![CDATA[
+</script>
+
+<script type="text/javascript">
+// ]]>&lt;![CDATA[<![CDATA[
+(function() {
+var sb = document.createElement("script"); sb.type = "text/javascript";sb.async = true;
+sb.src = ("https:" == document.location.protocol ? "https://dtym7iokkjlif.cloudfront.net" : "./") + "{T_SUPER_TEMPLATE_PATH}/sexybookmarks/jquery.shareaholic-publishers-sb.min.js";
+var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(sb, s);
+})();
+// ]]>]]&gt;<![CDATA[
+</script>
+        </div>
+            <dl class="postprofile">
+                <dt>
+                   <img src="{T_SUPER_TEMPLATE_PATH}/sexybookmarks/shareicon.png" title="{L_SEXY_ICON}">
+                   </dt>
+                   <dd>&nbsp;</dd>
+              </dl>
+            <div class="back2top"><a href="#wrap" class="top" title="{L_BACK_TO_TOP}">{L_BACK_TO_TOP}</a></div>
+        <span class="corners-bottom"><span></span></span></div>
+    </div>
+<hr class="divider" />
+<!-- ENDIF -->
+<!-- ENDIF -->
+<!-- End Shareaholic Sexy Bookmark script by phpbb3world.com for phpbb3 -->]]></action>
+			</edit>
+		</open>
+		<php-installer><![CDATA[install_sexybookmarks.php]]></php-installer>
+		<diy-instructions lang="en"><![CDATA[1. Delete the install_sexybookmarks.php
+2. Manage Sexy Social Bookmarks MOD in ACP]]></diy-instructions>
+		<diy-instructions lang="it"><![CDATA[1. Elimina il file install_sexybookmarks.php
+2. Gestisci Sexy Social Bookmarks MOD in ACP]]></diy-instructions>
+	</action-group>
+</mod>

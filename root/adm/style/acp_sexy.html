@@ -1,0 +1,139 @@
+<!-- INCLUDE overall_header.html -->
+<!-- Start: forum_icons_mod -->
+<script type="text/javascript">
+// <![CDATA[
+	function set_image(data)
+	{
+		var path = 'images/share/' + data;
+
+		if (data == '')
+		{
+			document.getElementById('sexy_enjoy').value='';
+			document.getElementById("sexy").innerHTML = "<img alt='' src='./../" + path + "' />";
+			return;
+		}
+
+		document.getElementById('sexy_enjoy').value=path;
+		document.getElementById("sexy").innerHTML = "<img alt='' src='./../" + path + "' />";
+	}
+
+// ]]>
+</script>
+<!-- END: forum_icons_mod -->
+{L_ACP_SEXY_IMAGE}<br />
+
+<h1>{L_SEXY_TITLE}</h1>
+<p>{L_SEXY_EXPLAIN}</p>
+
+<form id="acp_sexy" method="post" action="{U_ACTION}">
+	<fieldset>
+		<dl>
+			<dt><label>{L_SEXY_VERSION_OLD}</label></dt>
+			<dd><strong>{S_VERSIONOLD}</strong></dd>
+		</dl>
+		<!-- IF S_VERSIONNEW -->
+		<dl>
+			<dt><label>{L_SEXY_VERSION_NEW}</label></dt>
+			<dd><strong><a href="{U_VERSIONCHECK}" title="{L_MORE_INFORMATION}" style="color: #228822;" onclick="window.open(this.href);return false;">{S_VERSIONNEW}</a></strong></dd>
+		</dl>
+		<!-- ENDIF -->
+	</fieldset>
+	<fieldset>
+	<legend>{L_SEXY_SETTINGS}</legend>
+		<dl>
+			<dt><label id="sexy_enable" for="sexy_enable">{L_SEXY_ENABLE}</label><br /><span>{L_SEXY_ENABLE_EXPLAIN}</span></dt>
+			<dd><label><input type="radio" class="radio" name="sexy_enable" value="1"<!-- IF S_SEXY_ENABLE --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="sexy_enable" value="0"<!-- IF not S_SEXY_ENABLE --> checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+		</dl>
+		<dl>
+			<dt><label id="sexy_below_enable" for="sexy_below_enable">{L_SEXY_BELOW}</label><br /><span>{L_SEXY_BELOW_EXPLAIN}</span></dt>
+			<dd><label><input type="radio" class="radio" name="sexy_below_enable" value="1"<!-- IF S_SEXY_BELOW_ENABLE --> checked="checked"<!-- ENDIF --> /> {L_YES}</label>
+				<label><input type="radio" class="radio" name="sexy_below_enable" value="0"<!-- IF not S_SEXY_BELOW_ENABLE --> checked="checked"<!-- ENDIF --> /> {L_NO}</label></dd>
+		</dl>
+		<dl>
+			<dt><label id="sexy_position" for="sexy_position">{L_SEXY_POSITION}</label><br /><span>{L_SEXY_POSITION_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="sexy_position" value="1" <!-- IF S_SEXY_POSITION -->checked="checked"<!-- ENDIF -->/> {L_SEXY_BOTTOM_NAVBAR} &nbsp; 
+			<input type="radio" class="radio" name="sexy_position" value="0" <!-- IF not S_SEXY_POSITION -->checked="checked"<!-- ENDIF --> /> {L_SEXY_FIRST_CATEGORY}</dd>
+		</dl>
+		<dl>
+			<dt><label id="sexy_position_topic" for="sexy_position_topic">{L_SEXY_POSITIONT}</label><br /><span>{L_SEXY_POSITIONT_EXPLAIN}</span></dt>
+			<dd><input type="radio" class="radio" name="sexy_position_topic" value="1" <!-- IF S_SEXY_POSITIONT -->checked="checked"<!-- ENDIF -->/> {L_SEXY_ABOVE_MESSAGE} &nbsp; 
+			<input type="radio" class="radio" name="sexy_position_topic" value="0" <!-- IF not S_SEXY_POSITIONT -->checked="checked"<!-- ENDIF --> /> {L_SEXY_BELOW_MESSAGE}</dd>
+		</dl>		
+		<dl>
+			<dt><label for="sexy_colors">{L_TOOLTIP_COLOR}:</label><br /><span>{L_TOOLTIP_COLOR_EXPLAIN}</span></dt>
+			<dd><input name="sexy_colors" type="text" id="sexy_colors" value="{S_SEXY_COLOR}" size="6" maxlength="6" /><!-- IF S_SEXY_COLOR -->&nbsp;<span style="background-color: #{S_SEXY_COLOR}">&nbsp; &nbsp;</span><!-- ENDIF -->&nbsp;&nbsp;<span>[ <a href="{U_SWATCH}" onclick="popup(this.href, 636, 150, '_swatch'); return false">{L_COLOUR_SWATCH}</a> ]</span></dd>
+		</dl>
+		<dl>
+			<dt><label for="sexy_text">{L_TOOLTIP_TEXT}:</label><br /><span>{L_TOOLTIP_TEXT_EXPLAIN}</span></dt>
+			<dd><input name="sexy_text" type="text" id="sexy_text" value="{S_SEXY_TEXT}" size="6" maxlength="6" /><!-- IF S_SEXY_TEXT -->&nbsp;<span style="background-color: #{S_SEXY_TEXT}">&nbsp; &nbsp;</span><!-- ENDIF -->&nbsp;&nbsp;<span>[ <a href="{U_SWATCHS}" onclick="popup(this.href, 636, 150, '_swatch'); return false">{L_COLOUR_SWATCH}</a> ]</span></dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+	<legend>{L_SEXY_BUTTON}</legend>
+		<dl>
+			<dt><label for="sexy_buttons">{L_SEXY_BUTTONS}:</label><br /><span>{L_SEXY_BUTTONS_EXPLAIN}</span></dt>
+			<dd><input name="sexy_buttons" type="text" id="sexy_buttons" value="{S_SEXY_BUTTONS}" size="87" maxlength="255" /></dd><br /><br /><br /><br />
+				<hr />
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_FACEBOOK}" alt="{L_ACP_IMAGE_FACEBOOK}" /> <strong>{L_SEXY_FACEBOOK}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_TWITTER}" alt="{L_ACP_IMAGE_TWITTER}" /> <strong>{L_SEXY_TWITTER}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_DELICIOUS}" alt="{L_ACP_IMAGE_DELICIOUS}" /> <strong>{L_SEXY_DELICIOUS}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_GOOGLE}" alt="{L_ACP_IMAGE_GOOGLE}" /> <strong>{L_SEXY_GOOGLE}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_STUMBLEUPON}" alt="{L_ACP_IMAGE_STUMBLEUPON}" /> <strong>{L_SEXY_STUMBLEUPON}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_BOOKMAKERS}" alt="{L_ACP_IMAGE_BOOKMAKERS}" /> <strong>{L_SEXY_BOOKMAKERS}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_GMAIL}" alt="{L_ACP_IMAGE_GMAIL}" /> <strong>{L_SEXY_GMAIL}</strong><br /><br />
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_MYSPACE}" alt="{L_ACP_IMAGE_MYSPACE}" /> <strong>{L_SEXY_MYSPACE}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_REDDIT}" alt="{L_ACP_IMAGE_REDDIT}" /> <strong>{L_SEXY_REDDIT}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_TECHNORATI}" alt="{L_ACP_IMAGE_TECHNORATI}" /> <strong>{L_SEXY_TECHNORATI}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_LINKEDIN}" alt="{L_ACP_IMAGE_LINKEDIN}" /> <strong>{L_SEXY_LINKEDIN}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_PINTEREST}" alt="{L_ACP_IMAGE_PINTEREST}" /> <strong>{L_SEXY_PINTEREST}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_DIGG}" alt="{L_ACP_IMAGE_DIGG}" /> <strong>{L_SEXY_DIGG}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_BLOGGER}" alt="{L_ACP_IMAGE_BLOGGER}" /> <strong>{L_SEXY_BLOGGER}</strong><br /><br />
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_EVERNOTE}" alt="{L_ACP_IMAGE_EVERNOTE}" /> <strong>{L_SEXY_EVERNOTE}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_PRINT}" alt="{L_ACP_IMAGE_PRINT}" /> <strong>{L_SEXY_PRINTFRIENDLY}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_BEBO}" alt="{L_ACP_IMAGE_BEBO}" /> <strong>{L_SEXY_BEBO}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_YAHOO}" alt="{L_ACP_IMAGE_YAHOO}" /> <strong>{L_SEXY_YAHOO}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_HOTMAIL}" alt="{L_ACP_IMAGE_HOTMAIL}" /> <strong>{L_SEXY_HOTMAIL}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_TUMBLR}" alt="{L_ACP_IMAGE_TUMBLR}" /> <strong>{L_SEXY_TUMBLR}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_GLOBAL}" alt="{L_ACP_IMAGE_GLOBAL}" /> <strong>{L_SEXY_GLOBAL}</strong><br /><br />
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_DIIGO}" alt="{L_ACP_IMAGE_DIIGO}" /> <strong>{L_SEXY_DIIGO}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_DZONE}" alt="{L_ACP_IMAGE_DZONE}" /> <strong>{L_SEXY_DZONE}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_BUZZ}" alt="{L_ACP_IMAGE_BUZZ}" /> <strong>{L_SEXY_BUZZ}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_VIADEO}" alt="{L_ACP_IMAGE_VIADEO}" /> <strong>{L_SEXY_VIADEO}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_ORKUT}" alt="{L_ACP_IMAGE_ORKUT}" /> <strong>{L_SEXY_ORKUT}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_BLINK}" alt="{L_ACP_IMAGE_BLINK}" /> <strong>{L_SEXY_BLINK}</strong>&nbsp;&nbsp;
+                <img src="{ROOT_PATH}{T_THEME_PATH}{L_ACP_IMAGE_SPRING}" alt="{L_ACP_IMAGE_SPRING}" /> <strong>{L_SEXY_SPRING}</strong>&nbsp;&nbsp;				
+		</dl>
+	</fieldset>	
+	<fieldset>
+	<legend>{L_SEXY_IMAGE}</legend>
+	<dl>	
+		<dt><label for="sexy_enjoy">{L_SEXY_IMAGES}:</label><br /><span>{L_SEXY_IMAGES_EXPLAIN}</span></dt>
+		<dd><input class="text medium" type="text" id="sexy_enjoy" name="sexy_enjoy" value="{S_SEXY_ENJOY}" maxlength="255" />&nbsp;&nbsp;<input onclick="set_image('')" class="button1" type="button" id="clear" name="clear" value="{L_CLEAR_BUTTON_IMAGE}" /><br /><br /><span id="sexy"><img src="{S_SEXY_ENJOY}" alt="" /></span> &nbsp;&nbsp; {L_SEXY_ENJOY_CURR}</dd>
+	</dl>
+		<br /><hr />
+		<!-- Start: mod list forum_images from kiss engine copyright 2007 phpbbireland.com -->
+				<!-- BEGIN sexy_enjoy_imgage -->
+				<!-- IF sexy_enjoy_imgage.SEXY_ENJOY_IMG -->
+					<label><a onclick="set_image('{sexy_enjoy_imgage.SEXY_ENJOY_IMG}', true, true); return false;"><img src='{SEXY_ENJOY_PATH}{sexy_enjoy_imgage.SEXY_ENJOY_IMG}' title="{sexy_enjoy_imgage.SEXY_ENJOY_IMG}" width="110" height="53" alt="" /></a></label>
+				<!-- ENDIF -->
+			<!-- END sexy_enjoy_imgage -->
+	<!-- END: mod list forum_images from kiss engine copyright 2007 phpbbireland.com -->
+	</fieldset>
+	<fieldset>
+		<legend>{L_ACP_SUBMIT_CHANGES}</legend>	
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		{S_FORM_TOKEN}
+		</p>
+	</fieldset>
+</form>
+<br />
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<div style="text-align: center;">&copy; {L_SEXY_COPYRIGHT}</div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<!-- INCLUDE overall_footer.html -->
